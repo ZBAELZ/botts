@@ -20,7 +20,5 @@ bot.on('end', () => {
 });
 
 setInterval(() => {
-    bot.setControlState('jump', true);
-    setTimeout(() => bot.setControlState('jump', false), 500);
+    bot.chat('.');  // El bot enviará un punto al chat
 }, 60000); // Cada 60 segundos
-
