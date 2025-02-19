@@ -23,6 +23,7 @@ setInterval(() => {
     bot.chat('.');  // El bot enviará un punto al chat
 }, 60000); // Cada 60 segundos
 
+
 const axios = require('axios');
 
 const keepServerAlive = () => {
