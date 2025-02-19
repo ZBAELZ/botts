@@ -24,16 +24,3 @@ setInterval(() => {
     setTimeout(() => bot.setControlState('jump', false), 500);
 }, 60000); // Cada 60 segundos
 
-
-const express = require('express');
-const app = express();
-
-app.get('/', (req, res) => {
-    res.send('¡El bot está activo y funcionando!');
-});
-
-// Usa el puerto que Replit asigna automáticamente
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor web activo en el puerto ${PORT}`);
-});
