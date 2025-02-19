@@ -20,20 +20,21 @@ bot.on('end', () => {
 });
 
 setInterval(() => {
-    bot.setControlState('jump', true);
-    setTimeout(() => bot.setControlState('jump', false), 500);
+    bot.chat('.');  // El bot enviará un punto al chat
 }, 60000); // Cada 60 segundos
 
+const axios = require('axios');
 
-const express = require('express');
-const app = express();
+const keepServerAlive = () => {
+  setInterval(() => {
+    axios.get('https://aternos.org/server/#RSP1kHPEEl0qME5J')  // Reemplaza con la URL de tu servidor de Aternos
+      .then(response => {
+        console.log("Solicitud exitosa, el servidor sigue activo.");
+      })
+      .catch(error => {
+        console.error("Error al mantener el servidor activo:", error);
+      });
+  }, 5 * 60 * 1000);  // Enviar una solicitud cada 5 minutos
+};
 
-app.get('/', (req, res) => {
-    res.send('¡El bot está activo y funcionando!');
-});
-
-// Usa el puerto que Replit asigna automáticamente
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Servidor web activo en el puerto ${PORT}`);
-});
+keepServerAlive();
